@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .screen {
+        display: none;
+        padding-top: 100px;
+      }
+
+      .screen.active {
+        display: block;
+      }
+
+      .card {
+        background: white;
+        color: #ff4d6d;
+        margin: 10px auto;
+        padding: 15px;
+        border-radius: 15px;
+        width: 80%;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .card span {
+        display: none;
+        font-size: 14px;
+      }
+
+      .card.open span {
+        display: block;
+        margin-top: 10px;
+      }
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(2, 150px);
+        gap: 15px;
+        justify-content: center;
+        margin-top: 20px;
+      }
+
+      .gallery img {
+        width: 150px;
+        height: 150px;
+        border-radius: 15px;
+        object-fit: cover;
+        transition: 0.3s;
+      }
+
+      .gallery img:hover {
+        transform: scale(1.1);
+      }
+
+      .final-text {
+        max-width: 600px;
+        margin: 20px auto;
+        line-height: 1.6;
+      }
+
+      .love {
+        font-size: 30px;
+        margin-top: 20px;
+        animation: pulse 1s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="screen1" class="screen active">
+      <h1>Привет, Qarakozaiym ❤️</h1>
+      <p>Я сделал это специально для тебя 💌</p>
+      <button onclick="nextScreen(1)">Начать 💖</button>
+    </div>
+
+    <div id="screen2" class="screen">
+      <h1>Почему я тебя люблю 💖</h1>
+
+      <div class="card" onclick="this.classList.toggle('open')">
+        💖 Твоя нежность
+        <span>Ты делаешь каждый мой день лучше</span>
+      </div>
+
+      <div class="card" onclick="this.classList.toggle('open')">
+        💖 Твоя улыбка
+        <span>Она сводит меня с ума 😍</span>
+      </div>
+
+      <div class="card" onclick="this.classList.toggle('open')">
+        💖 Твой характер
+        <span>Ты особенная для меня</span>
+      </div>
+
+      <button onclick="nextScreen(2)">Далее ➡️</button>
+    </div>
+
+    <div id="screen3" class="screen">
+      <h1>Сюрприз 🎁</h1>
+      <p>Ты самое лучшее, что у меня есть ❤️</p>
+    </div>
+    <div id="screen4" class="screen">
+      <h1>Наши воспоминания 💞</h1>
+
+      <div class="gallery">
+        <img src="https://via.placeholder.com/150" />
+        <img src="https://via.placeholder.com/150" />
+        <img src="https://via.placeholder.com/150" />
+        <img src="https://via.placeholder.com/150" />
+      </div>
+
+      <button onclick="nextScreen(4)">Далее 💖</button>
+    </div>
+  </body>
+  <script>
+    function nextScreen(current) {
+      document.getElementById("screen" + current).classList.remove("active");
+      document.getElementById("screen" + (current + 1)).classList.add("active");
+    }
+  </script>
+</html>
